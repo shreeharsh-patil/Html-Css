@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Practice Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #111827;
+            --sidebar-bg: #1f2937;
+            --card-bg: #374151;
+            --primary: #6366f1;
+            --text: #f9fafb;
+            --text-gray: #9ca3af;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            height: 100vh;
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background-color: var(--sidebar-bg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-left: 10px;
+        }
+        .nav-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: 500;
+        }
+        .nav-item:hover, .nav-item.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        /* Main Content */
+        .content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            background-color: #4b5563;
+        }
+        .card h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .card .value {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .card .trend {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">PRACTISE CORE</div>
+        <div class="nav-item active">📊 Dashboard</div>
+        <div class="nav-item">👤 Profile</div>
+        <div class="nav-item">⚙️ Settings</div>
+    </div>
+    <div class="content">
+        <div class="header">
+            <h1>Welcome Back</h1>
+            <button style="background:var(--primary); color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">Create New</button>
+        </div>
+        <div class="stats-grid">
+            <div class="card">
+                <h3>Total Projects</h3>
+                <div class="value">12</div>
+                <div class="trend">↗ 25% increase</div>
+            </div>
+            <div class="card">
+                <h3>Hours Practised</h3>
+                <div class="value">148 hrs</div>
+                <div class="trend">↗ 5% increase</div>
+            </div>
+            <div class="card">
+                <h3>Skills Mastered</h3>
+                <div class="value">7</div>
+                <div class="trend" style="color:var(--primary);">Ready for more</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
