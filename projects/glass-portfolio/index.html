@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern futuristic tech portfolio showcasing premium design components.">
+    <title>Quantum Design Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050816;
+            --accent: #00F5FF;
+            --accent-alt: #7000FF;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #FFFFFF;
+            --text-muted: #8A8FA3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            background-image: url('assets/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(5,8,22,0.6) 100%);
+            z-index: -1;
+        }
+
+        /* Header/Navbar */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px 40px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            animation: slideDown 1s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 24px;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--accent), var(--accent-alt));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 400;
+            font-size: 16px;
+            transition: 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--accent-alt), var(--accent));
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+        }
+
+        /* Hero Section */
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 120px 5% 60px;
+        }
+
+        .hero-container {
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
+        }
+
+        .tagline {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.8);
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Grid Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto 100px;
+            animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.6s both;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            transition: 0.4s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0,245,255,0.05));
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 245, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px var(--accent));
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from { transform: translate(-50%, -100%); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            header { padding: 15px 25px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MATRIX.</div>
+        <nav>
+            <ul>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Tech</a></li>
+            </ul>
+        </nav>
+        <button class="cta-btn">Start Project</button>
+    </header>
+
+    <main>
+        <div class="hero-container">
+            <span class="tagline">Crafting Digital Experiences</span>
+            <h1>Designing the <span>Future</span> of the Web</h1>
+            <p class="hero-desc">A premium development showcase building next-generation digital architecture with aesthetic excellence and fluid interactions.</p>
+            <button class="cta-btn" style="font-size: 18px; padding: 16px 40px;">View Showcase</button>
+        </div>
+    </main>
+
+    <section class="features-grid" id="services">
+        <div class="card">
+            <div class="icon">✦</div>
+            <h3>Fluid Animations</h3>
+            <p>Smooth, performant motion principles implemented via pure CSS keyframes and GPU-accelerated transforms.</p>
+        </div>
+        <div class="card">
+            <div class="icon">✺</div>
+            <h3>Glassmorphism</h3>
+            <p>Leveraging backdrop-filter saturation and diffusion effects to create modern overlay hierarchy.</p>
+        </div>
+        <div class="card">
+            <div class="icon">❖</div>
+            <h3>Dynamic Gradients</h3>
+            <p>Tailored HSL combinations creating depth, vibrance, and a truly high-end look and feel.</p>
+        </div>
+    </section>
+
+    <footer style="text-align:center; padding: 40px; color: var(--text-muted); font-size: 14px; border-top: 1px solid var(--glass-border);">
+        &copy; 2026 Matrix Agency. Developed with Premium Standards.
+    </footer>
+
+</body>
+</html>
