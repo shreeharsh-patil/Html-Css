@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            background-color: yellow;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form {
+            max-width: 300px;
+        }
+        input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 5px;
+        }
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form action="#" method="POST">
+        <label for="studentName">Student Name:</label><br>
+        <input type="text" id="studentName" name="studentName" placeholder="Enter your name" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" placeholder="Enter your Age" required><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
