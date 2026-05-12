@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globe Times | Weather Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c00;
+            --bg: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-color: #222;
+            --text-muted: #666;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Section */
+        header {
+            background: #000;
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            font-family: 'Merriweather', serif;
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 4px solid var(--primary);
+            display: inline-block;
+        }
+
+        .nav-bar {
+            margin-top: 10px;
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-bar a {
+            color: #bbb;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-bar a:hover, .nav-bar a.active {
+            color: #fff;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 32px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #000;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Articles */
+        .featured-article {
+            background: var(--card-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 350px;
+            background-image: url('https://images.unsplash.com/photo-1516715094483-75da7dee9758?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .article-content {
+            padding: 30px;
+        }
+
+        .category {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 28px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+        }
+
+        /* Sidebar Articles */
+        .sidebar h3 {
+            font-family: 'Merriweather', serif;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .mini-article {
+            background: var(--card-bg);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 3px solid #ccc;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .mini-article:hover {
+            border-left-color: var(--primary);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .mini-article h4 {
+            font-family: 'Merriweather', serif;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .mini-article p {
+            font-size: 14px;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="brand">Globe Times</div>
+            <nav class="nav-bar">
+                <a href="#" class="active">Weather</a>
+                <a href="#">National</a>
+                <a href="#">Tech</a>
+                <a href="#">Opinion</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="section-title">Latest Reports</h1>
+            
+            <div class="news-grid">
+                <!-- Main Article Area -->
+                <div class="main-col">
+                    <article class="featured-article">
+                        <div class="hero-image"></div>
+                        <div class="article-content">
+                            <span class="category">IMD Alert</span>
+                            <h2>North India to see snowfall, heavy rain again from February 1 | Full IMD forecast</h2>
+                            <div class="meta">
+                                <span>By Bureau Desk</span>
+                                <span>•</span>
+                                <span>Feb 01, 2026</span>
+                            </div>
+                            <p>The India Meteorological Department (IMD) on Tuesday warned of a fresh Western Disturbance in the Himalayan region from Saturday, which is likely to cause heavy rainfall and snowfall on Sunday, February 1.</p>
+                            <p>The IMD said that light to moderate rainfall is also expected over Northwest India and adjoining parts of central India starting this weekend, impacting commuters and local aviation networks.</p>
+                            <a href="#" class="btn">Read Full Report</a>
+                        </div>
+                    </article>
+
+                    <article class="featured-article" style="box-shadow: none; border-top: 1px solid #ddd; border-radius: 0; padding-top: 20px;">
+                        <div class="article-content" style="padding: 0;">
+                            <span class="category">Crisis Management</span>
+                            <h2>Manali nightmare: Hotels 100% full, 685 roads shut, 24-hour traffic jam strands tourists in sub-zero cold</h2>
+                            <p>What began as a picturesque winter escape has turned into a chilling nightmare for hundreds of tourists in Himachal Pradesh, as heavy rainfall and intense snowfall crippled normal life across the state. From Shimla to Manali, the sudden surge of tourists collided with extreme weather, creating chaos on mountain roads.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar Area -->
+                <aside class="sidebar">
+                    <h3>Trending Stories</h3>
+                    
+                    <div class="mini-article">
+                        <h4>Snowfall across North India: Kashmir, Himachal and Uttarakhand turn into wonderland</h4>
+                        <p>Residents enjoy the season’s heavy snowfall by making snowballs in Srinagar as fresh snow blankets the city...</p>
+                    </div>
+
+                    <div class="mini-article">
+                        <h4>The Winter Escape Everyone Is Talking About</h4>
+                        <p>When winter takes over North India, travellers usually think of Shimla. But this season, a quieter destination has stolen the spotlight...</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
